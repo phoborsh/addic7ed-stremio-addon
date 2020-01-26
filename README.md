@@ -2,11 +2,10 @@
 _Addon to fetch subtitles for movies and shows from addic7ed_
 
 ## Installation
-Install from
-```
+Install from:
 https://addic7ed-stremio-addon.herokuapp.com/
-```
-or
+
+or from the addon search menu:
 ```
 stremio://addic7ed-stremio-addon.herokuapp.com/manifest.json
 ```
