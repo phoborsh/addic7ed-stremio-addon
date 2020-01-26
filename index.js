@@ -1,4 +1,4 @@
-const addic7edApi = require('addic7ed-api');
+var addic7ed = require('./lib/search');
 var needle = require('needle');
 var http = require('http');
 var httpProxy = require('http-proxy');
@@ -21,7 +21,6 @@ const addon = new addonBuilder({
 
 var addic7edURL = "www.addic7ed.com"
 var local = "http://addic7ed-stremio-addon-heroku.herokuapp.com"
-var Languages = ["eng","fre","esp","ita","swe","srp","slv","slk","rom","por","nor","mol","lit","lim","nld","lav","heb","fin","gre","ger","deu","cze","ara"]
 const route2referer = {}
 
 async function GetShowInfos(itemType, itemImdbId){
@@ -42,8 +41,8 @@ async function GetShowInfos(itemType, itemImdbId){
 	return Infos
 }
 
-async function GetSubsList(Name,SeasonId,EpisodeId,Langs){
-	let subtitlesList = await addic7edApi.search(Name, SeasonId, EpisodeId, Langs)
+async function GetSubsList(Name,SeasonId,EpisodeId){
+	let subtitlesList = await addic7ed.search(Name, SeasonId, EpisodeId)
 	return subtitlesList
 }
 
@@ -52,7 +51,7 @@ async function GetSubsArray(itemType, itemImdbId){
 		var Infos = await GetShowInfos(itemType, itemImdbId);
 		console.log("Show name: " + Infos.Name);
 		
-		var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode,Languages)
+		var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode)
 	}
 	if(itemType == "movie"){
 		var subtitlesList = []
