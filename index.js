@@ -8,7 +8,7 @@ const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
 const addon = new addonBuilder({
 	id: 'org.addic7edaddon',
 	name: 'Stremio Addic7ed Addon',
-	version: '0.1.1',
+	version: '0.1.2',
 	description: 'Online stremio Add-on for addic7ed subtitles',
 	resources: [ 'subtitles' ],
 	types: [ 'series' , 'movies'],

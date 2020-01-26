@@ -1,6 +1,6 @@
 {
   "name": "addic7ed-stremio-addon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "destription": "Online stremio Add-on for addic7ed subtitles",
   "scripts": {
     "start": "node bin/server"
