@@ -1,4 +1,4 @@
-var addic7ed = require('./lib/search');
+var APIsearch = require('./lib/search');
 var needle = require('needle');
 var http = require('http');
 var httpProxy = require('http-proxy');
@@ -42,7 +42,7 @@ async function GetShowInfos(itemType, itemImdbId){
 }
 
 async function GetSubsList(Name,SeasonId,EpisodeId){
-	let subtitlesList = await addic7ed.search(Name, SeasonId, EpisodeId)
+	let subtitlesList = await APIsearch(Name, SeasonId, EpisodeId)
 	return subtitlesList
 }
 
