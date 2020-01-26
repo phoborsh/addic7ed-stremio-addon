@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-<<<<<<< HEAD
 const { serveHTTP, publishToCentral, getRouter} = require("stremio-addon-sdk")
 const { addonInterface, route2referer } = require('../index.js')
 const landingTemplate = require('../lib/landingTemplate')
@@ -53,10 +52,3 @@ app.listen(process.env.PORT)
 
 console.log(process.env.PORT)
 //publishToCentral("https://addic7ed-stremio-addon-heroku.herokuapp.com/mainfest.json")	
-=======
-const { serveHTTP, publishToCentral } = require("stremio-addon-sdk")
-const addonInterface = require("../index")
-
-serveHTTP(addonInterface, { port: process.env.PORT || 3025, static: '/' })
-// publishToCentral("https://your-url.ext/mainfest.json")	
->>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
