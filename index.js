@@ -48,10 +48,16 @@ async function GetSubsList(Name,SeasonId,EpisodeId,Langs){
 }
 
 async function GetSubsArray(itemType, itemImdbId){
-	var Infos = await GetShowInfos(itemType, itemImdbId);
-	console.log("Show name: " + Infos.Name);
-	
-	var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode,Languages)
+	if(itemType == "series"){
+		var Infos = await GetShowInfos(itemType, itemImdbId);
+		console.log("Show name: " + Infos.Name);
+		
+		var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode,Languages)
+	}
+	if(itemType == "movie"){
+		var subtitlesList = []
+		return
+	}
 
 	for (i=0, len = subtitlesList.length, SubArray = []; i < len; i++){
 		const subtitle = {
