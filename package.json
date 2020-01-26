@@ -1,18 +1,20 @@
 {
 	"name": "addic7ed-stremio-addon",
-	"version": "0.0.1",
-	"destription": "Stemio Add-on for addic7ed subtitles",
+	"version": "0.1.1",
+	"destription": "Online stremio Add-on for addic7ed subtitles",
 	"scripts": {
 		"start": "node bin/server"
 	},
 	"dependencies": {
 		"addic7ed-api": "^1.9.0",
 		"encoding": "^0.1.12",
+		"express": "^4.17.1",
 		"http-proxy": "^1.18.0",
 		"jschardet": "^2.1.1",
 		"needle": "^2.4.0",
 		"portfinder": "^1.0.25",
 		"stremio-addon-sdk": "^1.6.1",
+		"subdomain-router": "^0.1.3",
 		"subsrt": "^1.1.1"
 	}
 }

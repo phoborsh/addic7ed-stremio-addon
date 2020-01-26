@@ -1,15 +1,39 @@
 const addic7edApi = require('addic7ed-api');
 var needle = require('needle');
 var http = require('http');
+<<<<<<< HEAD
+var httpProxy = require('http-proxy');
+const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
+=======
 var portfinder = require('portfinder');
 var pmsProxy = require('./lib/proxy')
 var httpProxy = require('http-proxy')
 
 const { addonBuilder, serveHTTP }  = require('stremio-addon-sdk');
+>>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
 
 
 const addon = new addonBuilder({
 	id: 'org.addic7edaddon',
+<<<<<<< HEAD
+	name: 'Addic7ed Addon Heroku',
+	version: '0.1.1',
+	description: 'Online stremio Add-on for addic7ed subtitles',
+	resources: [ 'subtitles' ],
+	types: [ 'series' , 'movies'],
+	catalogs: [],
+	idPrefixes: ["tt"],
+	logo: 'https://i.imgur.com/rpJeIz7.png',
+	background: 'https://i.imgur.com/qGFoCnz.png',
+	contactEmail: 'phoeniiiixj@gmail.com'
+})
+
+var addic7edURL = "www.addic7ed.com"
+var local = "http://addic7ed-stremio-addon-heroku.herokuapp.com"
+// var local = "http://localhost"
+var Languages = ["eng","fre","esp","ita","swe","srp","slv","slk","ron","por","nor","mol","lit","lim","nld","lav","heb","fin","gre","ger","deu","cze","ara"]
+const route2referer = {}
+=======
 	name: 'Addic7ed Addon',
 	version: '0.0.1',
 	description: 'Add-on for addic7ed subtitles',
@@ -52,6 +76,7 @@ function onRequest(client_req, client_res) {
 		end: true
 	});
 }
+>>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
 
 async function GetShowInfos(itemType, itemImdbId){
 	var ShowId = itemImdbId.split(':')[0]
@@ -81,6 +106,19 @@ async function GetSubsArray(itemType, itemImdbId){
 	console.log("Show name: " + Infos.Name);
 	
 	var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode,Languages)
+<<<<<<< HEAD
+
+	for (i=0, len = subtitlesList.length, SubArray = []; i < len; i++){
+		const subtitle = {
+			id: i,
+			url: local + subtitlesList[i].link,
+			lang: subtitlesList[i].lang
+		}
+		route2referer[subtitlesList[i].link] = "http://" + addic7edURL + (subtitlesList[i].referer || '/show/1')
+		SubArray.push(subtitle)	
+	}
+	
+=======
 	
 	const promise1 = new Promise(function(resolve, reject) {
 	  setTimeout(function() {
@@ -112,6 +150,7 @@ async function GetSubsArray(itemType, itemImdbId){
 	proxyServer.listen(port);
 	console.log("Starting local proxy on port: " + port + "with referer: " + Referer)
 	
+>>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
 	console.log("Subs ready")
 	return SubArray
 }
@@ -124,6 +163,10 @@ addon.defineSubtitlesHandler(args => {
 	return GetSubsArray(itemType, itemImdbId).then(subs => {
 		if (subs.length > 0) {
 			console.log('Subtitle loaded.')
+<<<<<<< HEAD
+			console.log(subs)
+=======
+>>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
 			return Promise.resolve({ subtitles: subs })
 		} else {
 			console.log('Subtitle not found.')
@@ -132,4 +175,11 @@ addon.defineSubtitlesHandler(args => {
 	})
 })
 
+<<<<<<< HEAD
+module.exports = { addonInterface: addon.getInterface(), route2referer: () => { return route2referer } }
+
+
+
+=======
 module.exports = addon.getInterface()
+>>>>>>> 2000d6e8815abffa0095b1c2b35dc016d3662227
