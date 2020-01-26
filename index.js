@@ -7,7 +7,7 @@ const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
 
 const addon = new addonBuilder({
 	id: 'org.addic7edaddon',
-	name: 'Addic7ed Addon Heroku',
+	name: 'Stremio Addic7ed Addon',
 	version: '0.1.1',
 	description: 'Online stremio Add-on for addic7ed subtitles',
 	resources: [ 'subtitles' ],
