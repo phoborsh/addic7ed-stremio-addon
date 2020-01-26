@@ -1,4 +1,4 @@
-var APIsearch = require('./lib/search');
+var { searchShow, searchMovie } = require('./lib/search');
 var needle = require('needle');
 var http = require('http');
 var httpProxy = require('http-proxy');
@@ -14,8 +14,8 @@ const addon = new addonBuilder({
 	types: [ 'series' , 'movies'],
 	catalogs: [],
 	idPrefixes: ["tt"],
-	logo: 'https://i.imgur.com/rpJeIz7.png',
-	background: 'https://i.imgur.com/qGFoCnz.png',
+	logo: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/logo.png',
+	background: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/background.png',
 	contactEmail: 'phoeniiiixj@gmail.com'
 })
 
@@ -41,8 +41,27 @@ async function GetShowInfos(itemType, itemImdbId){
 	return Infos
 }
 
-async function GetSubsList(Name,SeasonId,EpisodeId){
-	let subtitlesList = await APIsearch(Name, SeasonId, EpisodeId)
+async function GetMovieInfos(itemType, itemImdbId){
+	var url = 'https://v3-cinemeta.strem.io/meta/' + itemType + '/' + itemImdbId + '.json'
+	let data = await needle("get", url)
+	let ShowName = await data.body.meta.name
+	
+	let Infos = {
+		Id: ShowId,
+		Season: 0,
+		Episode: 0,
+		Name: ShowName
+	}
+	return Infos
+}
+
+async function GetShowSubsList(Name,SeasonId,EpisodeId){
+	let subtitlesList = await searchShow(Name, SeasonId, EpisodeId)
+	return subtitlesList
+}
+
+async function GetMovieSubsList(Name){
+	let subtitlesList = await searchMovie(Name)
 	return subtitlesList
 }
 
@@ -51,10 +70,12 @@ async function GetSubsArray(itemType, itemImdbId){
 		var Infos = await GetShowInfos(itemType, itemImdbId);
 		console.log("Show name: " + Infos.Name);
 		
-		var subtitlesList = await GetSubsList(Infos.Name,Infos.Season,Infos.Episode)
+		var subtitlesList = await GetShowSubsList(Infos.Name,Infos.Season,Infos.Episode)
 	}
 	if(itemType == "movie"){
-		var subtitlesList = []
+		var Infos = await GetMovieInfos(itemType, itemImdbId);
+		
+		var subtitlesList = await GetMovieSubsList(Name)
 		return
 	}
 
