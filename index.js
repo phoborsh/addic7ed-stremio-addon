@@ -20,7 +20,7 @@ const addon = new addonBuilder({
 })
 
 var addic7edURL = "www.addic7ed.com"
-var local = "http://addic7ed-stremio-addon-heroku.herokuapp.com"
+var local = "http://addic7ed-stremio-addon.herokuapp.com"
 const route2referer = {}
 
 async function GetShowInfos(itemType, itemImdbId){
