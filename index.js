@@ -75,7 +75,7 @@ async function GetSubsArray(itemType, itemImdbId){
 	if(itemType == "movie"){
 		var Infos = await GetMovieInfos(itemType, itemImdbId);
 		
-		var subtitlesList = await GetMovieSubsList(Name)
+		var subtitlesList = await GetMovieSubsList(Infos.Name)
 		return
 	}
 
