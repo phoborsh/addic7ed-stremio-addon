@@ -11,7 +11,7 @@ const addon = new addonBuilder({
 	version: '0.1.2',
 	description: 'Online stremio Add-on for addic7ed subtitles',
 	resources: [ 'subtitles' ],
-	types: [ 'series' , 'movies'],
+	types: [ 'series' , 'movie'],
 	catalogs: [],
 	idPrefixes: ["tt"],
 	logo: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/logo.png',
