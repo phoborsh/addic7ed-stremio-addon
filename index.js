@@ -47,7 +47,7 @@ async function GetMovieInfos(itemType, itemImdbId){
 	let ShowName = await data.body.meta.name
 	
 	let Infos = {
-		Id: ShowId,
+		Id: itemImdbId,
 		Season: 0,
 		Episode: 0,
 		Name: ShowName
