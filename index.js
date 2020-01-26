@@ -74,6 +74,7 @@ async function GetSubsArray(itemType, itemImdbId){
 	}
 	if(itemType == "movie"){
 		var Infos = await GetMovieInfos(itemType, itemImdbId);
+		console.log("Movie name: " + Infos.Name);
 		
 		var subtitlesList = await GetMovieSubsList(Infos.Name)
 		return
