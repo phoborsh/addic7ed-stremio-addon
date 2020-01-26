@@ -21,7 +21,7 @@ const addon = new addonBuilder({
 
 var addic7edURL = "www.addic7ed.com"
 var local = "http://addic7ed-stremio-addon-heroku.herokuapp.com"
-var Languages = ["eng","fre","esp","ita","swe","srp","slv","slk","ron","por","nor","mol","lit","lim","nld","lav","heb","fin","gre","ger","deu","cze","ara"]
+var Languages = ["eng","fre","esp","ita","swe","srp","slv","slk","rom","por","nor","mol","lit","lim","nld","lav","heb","fin","gre","ger","deu","cze","ara"]
 const route2referer = {}
 
 async function GetShowInfos(itemType, itemImdbId){
