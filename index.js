@@ -1,4 +1,3 @@
-var { searchShow, searchMovie } = require('./lib/search');
 var { GetShowInfos, GetMovieInfos, GetShowSubsList, GetMovieSubsList } = require('./lib/format');
 var http = require('http');
 var httpProxy = require('http-proxy');
