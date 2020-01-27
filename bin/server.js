@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const { serveHTTP, publishToCentral, getRouter} = require("stremio-addon-sdk")
-const { addonInterface, route2referer } = require('../index.js')
-const landingTemplate = require('../lib/landingTemplate')
-var config = require('../config');
+console.log("[Server] Booting up ...")
 
-
-var httpProxy = require('http-proxy');
-const express = require('express')
+const { serveHTTP, publishToCentral, getRouter} = require("stremio-addon-sdk"),
+	{ addonInterface, route2referer } = require('../index.js'),
+	landingTemplate = require('../lib/landingTemplate'),
+	httpProxy = require('http-proxy'),
+	express = require('express'),
+	config = require('../config');
+	
 const app = express()
-
 var proxyServer = httpProxy.createProxyServer()
 const router = getRouter(addonInterface) // add your addonInterface
 
@@ -50,6 +50,6 @@ router.get('/original/*', function(req, res, next) {
 app.use(router)
 app.listen(process.env.PORT)
 
-console.log("Starting addon at: " + config.local)
-console.log("Internal proxy port: " + config.port)
+console.log("[Server] Started addon at: " + config.local)
+console.log("[Server] Internal proxy port: " + config.port)
 //publishToCentral("https://addic7ed-stremio-addon.herokuapp.com/mainfest.json")	
