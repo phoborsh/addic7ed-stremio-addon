@@ -1,5 +1,5 @@
-var { 	GetShowInfos, GetMovieInfos, GetShowSubsList, GetMovieSubsList } = require('./lib/search');
-var { GetShowSubsList, GetMovieSubsList } = require('./lib/format');
+var { searchShow, searchMovie } = require('./lib/search');
+var { GetShowInfos, GetMovieInfos, GetShowSubsList, GetMovieSubsList } = require('./lib/format');
 var http = require('http');
 var httpProxy = require('http-proxy');
 const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
