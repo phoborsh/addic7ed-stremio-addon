@@ -12,8 +12,7 @@ stremio://addic7ed-stremio-addon.herokuapp.com/manifest.json
 
 ## Features
 - Fetch subtitles in any languages
-- Works for all TV shows on addic7ed
+- Works for all TV shows and movies on addic7ed
 
 ## Planned features
-- Movies support
 - Caching
