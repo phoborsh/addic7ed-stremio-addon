@@ -63,7 +63,7 @@ async function GetShowSubsList(Name,SeasonId,EpisodeId){
 async function GetMovieSubsList(Name){
 	let subtitlesList = await searchMovie(Name)
 	console.log(subtitlesList)
-	console.log("FOUND SUBS!!!!")
+	console.log("FOUND SUBS!!!!	")
 	return subtitlesList
 }
 
@@ -79,7 +79,6 @@ async function GetSubsArray(itemType, itemImdbId){
 		console.log("Movie name: " + Infos.Name);
 		
 		var subtitlesList = await GetMovieSubsList(Infos.Name)
-		return
 	}
 
 	for (i=0, len = subtitlesList.length, SubArray = []; i < len; i++){
