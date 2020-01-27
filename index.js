@@ -1,6 +1,5 @@
 var { searchShow, searchMovie } = require('./lib/search');
 var { GetShowSubsList, GetMovieSubsList } = require('./lib/format');
-var needle = require('needle');
 var http = require('http');
 var httpProxy = require('http-proxy');
 const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
