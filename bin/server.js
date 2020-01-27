@@ -51,4 +51,4 @@ app.use(router)
 app.listen(process.env.PORT)
 
 console.log(process.env.PORT)
-//publishToCentral("https://addic7ed-stremio-addon-heroku.herokuapp.com/mainfest.json")	
+//publishToCentral("https://addic7ed-stremio-addon.herokuapp.com/mainfest.json")	
