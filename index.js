@@ -2,7 +2,7 @@ var { GetShowInfos, GetMovieInfos, GetShowSubsList, GetMovieSubsList } = require
 var http = require('http');
 var httpProxy = require('http-proxy');
 const { addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk');
-
+var config = require('./config');
 
 const addon = new addonBuilder({
 	id: 'org.addic7edaddon',
@@ -18,8 +18,7 @@ const addon = new addonBuilder({
 	contactEmail: 'phoeniiiixj@gmail.com'
 })
 
-var addic7edURL = "www.addic7ed.com"
-var local = "http://addic7ed-stremio-addon.herokuapp.com"
+
 const route2referer = {}
 
 async function GetSubsArray(itemType, itemImdbId){
@@ -39,10 +38,10 @@ async function GetSubsArray(itemType, itemImdbId){
 	for (i=0, len = subtitlesList.length, SubArray = []; i < len; i++){
 		const subtitle = {
 			id: i,
-			url: local + subtitlesList[i].link,
+			url: config.local + subtitlesList[i].link,
 			lang: subtitlesList[i].lang
 		}
-		route2referer[subtitlesList[i].link] = "http://" + addic7edURL + (subtitlesList[i].referer || '/show/1')
+		route2referer[subtitlesList[i].link] = "http://" + config.addic7ed_url + (subtitlesList[i].referer || '/show/1')
 		SubArray.push(subtitle)	
 	}
 	return SubArray

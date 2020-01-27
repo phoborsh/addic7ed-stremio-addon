@@ -3,7 +3,7 @@
 const { serveHTTP, publishToCentral, getRouter} = require("stremio-addon-sdk")
 const { addonInterface, route2referer } = require('../index.js')
 const landingTemplate = require('../lib/landingTemplate')
-
+var config = require('../config');
 
 
 var httpProxy = require('http-proxy');
@@ -18,7 +18,7 @@ var ProxyOptions = {
 			changeOrigin: true,
 			followRedirects: true,
 
-			target: 'https://www.addic7ed.com',
+			target: config.addic7ed_url,
 			headers:{
 				'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
 				'Referer': 'http://www.addic7ed.com/show/1'
@@ -50,5 +50,6 @@ router.get('/original/*', function(req, res, next) {
 app.use(router)
 app.listen(process.env.PORT)
 
-console.log(process.env.PORT)
+console.log("Starting addon at: " + config.local)
+console.log("Internal proxy port: " + config.port)
 //publishToCentral("https://addic7ed-stremio-addon.herokuapp.com/mainfest.json")	
