@@ -63,6 +63,7 @@ async function GetShowSubsList(Name,SeasonId,EpisodeId){
 async function GetMovieSubsList(Name){
 	let subtitlesList = await searchMovie(Name)
 	console.log(subtitlesList)
+	console.log("FOUND SUBS!!!!")
 	return subtitlesList
 }
 
