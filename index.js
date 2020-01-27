@@ -88,8 +88,6 @@ async function GetSubsArray(itemType, itemImdbId){
 		route2referer[subtitlesList[i].link] = "http://" + addic7edURL + (subtitlesList[i].referer || '/show/1')
 		SubArray.push(subtitle)	
 	}
-	
-	console.log("Subs ready")
 	return SubArray
 }
 
