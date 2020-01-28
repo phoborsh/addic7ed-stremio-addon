@@ -12,8 +12,7 @@ stremio://addic7ed-stremio-addon.herokuapp.com/manifest.json
 ```
 
 ### Local
-Download and install Node.js on your computer
-Install and launch from Powershell:
+Download and install Node.js on your computer, then install and launch the addon from Powershell:
 ```
 git clone https://github.com/phoborsh/addic7ed-stremio-addon.git
 cd addic7ed-stremio-addon
