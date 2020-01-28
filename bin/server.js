@@ -48,7 +48,7 @@ router.get('/original/*', function(req, res, next) {
 
 
 app.use(router)
-app.listen(process.env.PORT)
+app.listen(config.port)
 
 console.log("[Server] Started addon at: " + config.local)
 console.log("[Server] Internal proxy port: " + config.port)

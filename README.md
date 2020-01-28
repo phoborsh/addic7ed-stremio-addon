@@ -2,12 +2,34 @@
 _Addon to fetch subtitles for movies and shows from addic7ed_
 
 ## Installation
-Install from:
+### Online
+Add the addon to stremio from browser:
 https://addic7ed-stremio-addon.herokuapp.com/
 
 or from the addon search menu:
 ```
 stremio://addic7ed-stremio-addon.herokuapp.com/manifest.json
+```
+
+### Local
+Download and install Node.js on your computer
+Install from Powershell:
+```
+git clone https://github.com/phoborsh/addic7ed-stremio-addon.git
+cd D:\Files\Desktop\addic7ed-stremio-addon
+```
+
+Then launch with:
+```
+npm start local
+```
+
+Add the addon to stremio from browser:
+http://127.0.0.1:8095
+
+or from the addon search menu:
+```
+stremio://127.0.0.1:8095/manifest.json
 ```
 
 ## Features

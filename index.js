@@ -4,6 +4,7 @@ const { GetShowInfos, GetMovieInfos, GetShowSubsList, GetMovieSubsList } = requi
 	{ addonBuilder, serveHTTP, getRouter }  = require('stremio-addon-sdk'),
 	config = require('./config');
 
+const route2referer = {}
 const addon = new addonBuilder({
 	id: 'org.addic7edaddon',
 	name: 'Stremio Addic7ed Addon',
@@ -18,33 +19,30 @@ const addon = new addonBuilder({
 	contactEmail: 'phoeniiiixj@gmail.com'
 })
 
-
-const route2referer = {}
-
 async function GetSubsArray(itemType, itemImdbId){
 	if(itemType == "series"){
 		var Infos = await GetShowInfos(itemType, itemImdbId);
 		console.log("[Index] Show name: " + Infos.Name);
 		
-		var subtitlesList = await GetShowSubsList(Infos.Name,Infos.Season,Infos.Episode)
+		var subtitlesRaw = await GetShowSubsList(Infos.Name,Infos.Season,Infos.Episode)
 	}
 	if(itemType == "movie"){
 		var Infos = await GetMovieInfos(itemType, itemImdbId);
 		console.log("[Index] Movie name: " + Infos.Name);
 		
-		var subtitlesList = await GetMovieSubsList(Infos.Name)
+		var subtitlesRaw = await GetMovieSubsList(Infos.Name)
 	}
 
-	for (i=0, len = subtitlesList.length, SubArray = []; i < len; i++){
+	for (i=0, len = subtitlesRaw.length, subtitles = []; i < len; i++){
 		const subtitle = {
 			id: i,
-			url: config.local + subtitlesList[i].link,
-			lang: subtitlesList[i].lang
+			url: config.local + subtitlesRaw[i].link,
+			lang: subtitlesRaw[i].lang
 		}
-		route2referer[subtitlesList[i].link] = config.addic7ed_url + (subtitlesList[i].referer || '/show/1')
-		SubArray.push(subtitle)	
+		route2referer[subtitlesRaw[i].link] = config.addic7ed_url + (subtitlesRaw[i].referer || '/show/1')
+		subtitles.push(subtitle)	
 	}
-	return SubArray
+	return subtitles
 }
 
 addon.defineSubtitlesHandler(args => {
@@ -52,11 +50,11 @@ addon.defineSubtitlesHandler(args => {
 	var itemImdbId = args.id
 	console.log("[Index] Request for subtitles: " + itemType + " " + itemImdbId);
  
-	return GetSubsArray(itemType, itemImdbId).then(subs => {
-		if (subs.length > 0) {
+	return GetSubsArray(itemType, itemImdbId).then(subtitles => {
+		if (subtitles.length > 0) {
 			console.log("[Index] Subtitle loaded.")
-			console.log(subs)
-			return Promise.resolve({ subtitles: subs })
+			console.log(subtitles)
+			return Promise.resolve({ subtitles: subtitles })
 		} else {
 			console.log("[Index] Subtitle not found.")
 			return Promise.resolve({ subtitles: [] })
