@@ -18,6 +18,7 @@ Download and install Node.js on your computer, then install and launch the addon
 ```
 git clone https://github.com/phoborsh/addic7ed-stremio-addon.git
 cd addic7ed-stremio-addon
+npm install
 npm start local
 ```
 
