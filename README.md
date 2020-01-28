@@ -1,5 +1,6 @@
 # Addi7ed stremio Addon
 _Addon to fetch subtitles for movies and shows from addic7ed_
+![example image](https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/screenshots/example.png)
 
 ## Installation
 ### Online

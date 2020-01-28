@@ -14,8 +14,8 @@ const addon = new addonBuilder({
 	types: [ 'series' , 'movie'],
 	catalogs: [],
 	idPrefixes: ["tt"],
-	logo: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/logo.png',
-	background: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/background.png',
+	logo: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/screenshots/logo.png',
+	background: 'https://raw.githubusercontent.com/phoborsh/addic7ed-stremio-addon/master/screenshots/background.png',
 	contactEmail: 'phoeniiiixj@gmail.com'
 })
 
