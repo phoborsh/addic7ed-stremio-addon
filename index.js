@@ -52,8 +52,8 @@ addon.defineSubtitlesHandler(args => {
  
 	return GetSubsArray(itemType, itemImdbId).then(subtitles => {
 		if (subtitles.length > 0) {
-			console.log("[Index] Subtitle loaded.")
-			console.log(subtitles)
+			console.log("[Index] " + subtitles.length + " subtitles loaded.")
+			console.log()
 			return Promise.resolve({ subtitles: subtitles })
 		} else {
 			console.log("[Index] Subtitle not found.")

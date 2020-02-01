@@ -51,5 +51,6 @@ app.use(router)
 app.listen(config.port)
 
 console.log("[Server] Started addon at: " + config.local)
+console.log("[Server] Install addon from: " + config.local + "/manifest.json")
 console.log("[Server] Internal proxy port: " + config.port)
 //publishToCentral("https://addic7ed-stremio-addon.herokuapp.com/mainfest.json")	

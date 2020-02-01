@@ -3,7 +3,8 @@
   "version": "0.1.4",
   "destription": "Online stremio Add-on for addic7ed subtitles",
   "scripts": {
-    "start": "node bin/server"
+    "start": "node bin/server",
+    "start:dev": "nodemon bin/server.js local"
   },
   "dependencies": {
     "encoding": "^0.1.12",
