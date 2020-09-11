@@ -9,7 +9,7 @@
   "dependencies": {
     "encoding": "^0.1.12",
     "express": "^4.17.1",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "jschardet": "^2.1.1",
     "langs": "^2.0.0",
     "needle": "^2.4.0",
